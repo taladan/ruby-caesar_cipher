@@ -58,6 +58,10 @@ end
 
 testCharacters()
 testRange()
-mystr = ("a".."z").to_a.join("")
-caesar_cipher(mystr, 1)
-caesar_cipher(mystr, 25)
+my_lc_str = ("a".."z").to_a.join("")
+my_uc_str = ("A".."z").to_a.join("")
+
+caesar_cipher(my_lc_str, 1)
+caesar_cipher(my_lc_str, 25)
+caesar_cipher(my_uc_str, 1)
+caesar_cipher(my_uc_str, 25)
