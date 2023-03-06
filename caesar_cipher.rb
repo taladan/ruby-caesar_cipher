@@ -35,8 +35,8 @@ def letter?(char)
 end
 
 # Test cases
-
-def testCharacters()
+def tests()
+  puts "INDIVIDUAL CHARACTER TESTING"
   puts "A is uppercase: #{upper?("A")}"
   puts "Z is uppercase: #{upper?("Z")}"
   puts "a is uppercase: #{upper?("a")}"
@@ -49,19 +49,36 @@ def testCharacters()
   puts "? is letter: #{letter?("?")}"
   puts "a is letter: #{letter?("a")}"
   puts "Z is letter: #{letter?("Z")}"
-end
-
-def testRange()
+  puts "TESTING FOR RANGE"
   puts "A is in range #{get_range("A")}"
   puts "a is in range #{get_range("a")}"
+  # Test all lc characters
+  puts "TESTING ALL LOWERCASE CHARACTERS"
+  my_lc_str = ("a".."z").to_a.join("")
+  caesar_cipher(my_lc_str, 1)
+  caesar_cipher(my_lc_str, 25)
+  # Test all uc characters
+  puts "TESTING ALL UPPERCASE CHARACTERS"
+  my_uc_str = ("A".."Z").to_a.join("")
+  caesar_cipher(my_uc_str, 1)
+  caesar_cipher(my_uc_str, 25)
+  # Test all numbers
+  puts "TESTING FOR NUMERIC CHARACTER SHIFTS"
+  my_num_str = "1234567890"
+  caesar_cipher(my_num_str, 1)
+  caesar_cipher(my_num_str, 25)
+  # Test all punctuation
+  puts "TESTING FOR PUNCTUATION CHARACTER SHIFTS"
+  my_punct_str = %w[' " . , ? ! : ; `].join("")
+  caesar_cipher(my_punct_str, 1)
+  caesar_cipher(my_punct_str, 25)
+
+  puts "\n\nTESTING AN ACTUAL STRING"
+  caesar_cipher(
+    "What an amazing string!  It even pauses, and has 1 numbers and ; punctutaions.",
+    5,
+  )
 end
 
-testCharacters()
-testRange()
-my_lc_str = ("a".."z").to_a.join("")
-my_uc_str = ("A".."z").to_a.join("")
-
-caesar_cipher(my_lc_str, 1)
-caesar_cipher(my_lc_str, 25)
-caesar_cipher(my_uc_str, 1)
-caesar_cipher(my_uc_str, 25)
+# Uncomment this to run tests
+# tests()
