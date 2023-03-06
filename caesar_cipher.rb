@@ -3,11 +3,13 @@
 def caesar_cipher(string, shift)
   string.each_char do |char|
     if letter?(char)
-      char_ord = char.ord
-      ending_ord = char_ord + shift
+      ending_ord = char.ord + shift
       ord_range = get_range(char)
-      char_position_from_end = ord_range.last - char.ord
-      ending_ord = ending_ord - 26 if ending_ord > ord_range.last
+      if shift.to_i.negative?
+        ending_ord = ending_ord + 26 if ending_ord < ord_range.first
+      else
+        ending_ord = ending_ord - 26 if ending_ord > ord_range.last
+      end
       print (ending_ord.chr)
     else
       print(char)
@@ -77,6 +79,9 @@ def tests()
     "What an amazing string!  It even pauses, and has 1 numbers and ; punctutaions.",
     5,
   )
+
+  puts "\n\nTESTING NEGATIVE SHIFT"
+  caesar_cipher("ABCabc !!!!!  ZXYzxy", -5)
 end
 
 # Uncomment this to run tests
