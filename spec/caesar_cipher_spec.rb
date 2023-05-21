@@ -14,4 +14,10 @@ describe Cipher do
       expect(cipher.shift('Air', -2)).to eql('Ygp')
     end
   end
+
+  context 'shifts with alpha and numeric characters' do
+    it 'shifts only alphabet characters two spaces right' do
+      expect(cipher.shift('A12ir', 2)).to eql('C12kt')
+    end
+  end
 end
