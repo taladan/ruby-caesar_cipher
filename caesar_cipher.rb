@@ -3,6 +3,8 @@
 # Return caesar shift cypher of string by shift
 class Cipher
   def shift(string, shift)
+    # We will return a shifted string
+    output = ''
     # iterate through each character of string
     string.each_char do |char|
       # only shift a-zA-Z characters
@@ -17,15 +19,14 @@ class Cipher
           ending_ord -= 26
         end
         # Stay within the range of character ordinals
-        # convert ord to character and print to line
-        print(ending_ord.chr)
+        # convert ord to character and pack to string
+        output << ending_ord.chr
       else
-        # print non-Alpha character
-        print(char)
+        # pack non-Alpha character to string
+        output << char
       end
     end
-    # newline when finished
-    print("\n")
+    output
   end
 
   # define ord range for Alpha characters (a-zA-Z)
