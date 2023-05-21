@@ -19,5 +19,9 @@ describe Cipher do
     it 'shifts only alphabet characters two spaces right' do
       expect(cipher.shift('A12ir', 2)).to eql('C12kt')
     end
+
+    it 'shifts only alphabet characters two spaces left' do
+      expect(cipher.shift('A12ir', -2)).to eql('Y12gp')
+    end
   end
 end
